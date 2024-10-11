@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>609oncomingpolicecar_100542.ico</ApplicationIcon>
   </PropertyGroup>
 
 
@@ -16,6 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Content Include="609oncomingpolicecar_100542.ico" />
 		<Content Include="version.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
