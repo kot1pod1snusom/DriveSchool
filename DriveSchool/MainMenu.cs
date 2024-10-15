@@ -21,8 +21,8 @@ namespace DriveSchool
         {
             InitializeComponent();
             CheckUpdate();
-            labelUserName.Size = flowLayoutPanel1.Size;
-            labelUserName.Text = "Тут будет ваше имя";
+            labelUser.Size = flowLayoutPanel1.Size;
+            labelUser.Text = "Тут будет ваше имя";
             addChousenButton();
         }
 
@@ -30,7 +30,7 @@ namespace DriveSchool
         {
             WebClient client = new WebClient();
 
-            
+
             if (client.DownloadString("https://pastebin.com/SrTLr3Z7").Contains(File.ReadAllText("version.txt")))
             {
                 return;
@@ -44,13 +44,14 @@ namespace DriveSchool
             }
             else if (dialogResult == DialogResult.No)
             {
-                
+
             }
         }
 
         private void ComboBoxChouseCategoryCreate()
         {
-            ComboBox comboBox = new ComboBox() {
+            ComboBox comboBox = new ComboBox()
+            {
                 Dock = DockStyle.Fill,
                 FormattingEnabled = true,
                 Name = "comboBoxChouseCategory",
@@ -81,7 +82,7 @@ namespace DriveSchool
                 default:
                     break;
             }
-        } 
+        }
 
         private void addChousenButton()
         {
@@ -112,7 +113,7 @@ namespace DriveSchool
 
             tableLayoutPanel2.Controls.Add(buttonTicket);
             tableLayoutPanel2.SetColumn(buttonTicket, 10);
-            tableLayoutPanel2.SetRow(buttonTicket,2);
+            tableLayoutPanel2.SetRow(buttonTicket, 2);
             tableLayoutPanel2.SetColumnSpan(buttonTicket, 5);
             tableLayoutPanel2.SetRowSpan(buttonTicket, 3);
 
@@ -180,7 +181,7 @@ namespace DriveSchool
 
         private void buttonClickStartExam(object sender, EventArgs e)
         {
-            Button button = (Button) sender;
+            Button button = (Button)sender;
             List<Question> ques = TicketsWork.GetQuestionsForExam(CategoryChose);
             TicketsForm ticketsForm = new TicketsForm(ques, true);
             Hide();
@@ -191,6 +192,12 @@ namespace DriveSchool
         private void buttonStartTicket_Click(object sender, EventArgs e)
         {
             addTicketButton();
+        }
+
+        private void labelUser_Click(object sender, EventArgs e)
+        {
+            RegistrMenu reg = new RegistrMenu();
+            reg.ShowDialog();
         }
     }
 }
