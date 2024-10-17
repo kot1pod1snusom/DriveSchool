@@ -130,6 +130,7 @@
             buttonLogIn.TabIndex = 4;
             buttonLogIn.Text = "Войти";
             buttonLogIn.UseVisualStyleBackColor = true;
+            buttonLogIn.Click += buttonLogIn_Click;
             // 
             // buttonRegistr
             // 
@@ -142,6 +143,7 @@
             buttonRegistr.TabIndex = 5;
             buttonRegistr.Text = "Создать аккаунт";
             buttonRegistr.UseVisualStyleBackColor = true;
+            buttonRegistr.Click += buttonRegistr_Click;
             // 
             // checkBoxShowHidePassword
             // 

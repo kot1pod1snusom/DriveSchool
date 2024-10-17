@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DriveSchool
+namespace DriveSchool.user
 {
     internal class User
     {
         public string Id;
-        public string Name { get; set; }
+        public string Name;
 
         private string password;
 
