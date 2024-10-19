@@ -14,6 +14,9 @@ namespace DriveSchool.user
     {
         public UserMenu()
         {
+
+
+
             InitializeComponent();
         }
     }
