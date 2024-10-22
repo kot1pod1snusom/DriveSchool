@@ -33,17 +33,22 @@
             labelRegistrationData = new Label();
             groupBoxLastSolveTicket = new GroupBox();
             tableLayoutPanelLastSolveQuestion = new TableLayoutPanel();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
             label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            label4 = new Label();
+            dataGridView1 = new DataGridView();
+            TicketNumber = new DataGridViewTextBoxColumn();
+            CorrectAnswersCount = new DataGridViewTextBoxColumn();
+            AllQuestionCount = new DataGridViewTextBoxColumn();
             tableLayoutPanel1.SuspendLayout();
             groupBoxLastSolveTicket.SuspendLayout();
             tableLayoutPanelLastSolveQuestion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -54,8 +59,8 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 4.850746F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5.09950256F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
@@ -72,6 +77,7 @@
             tableLayoutPanel1.Controls.Add(labelUserName, 1, 2);
             tableLayoutPanel1.Controls.Add(labelRegistrationData, 1, 3);
             tableLayoutPanel1.Controls.Add(groupBoxLastSolveTicket, 13, 10);
+            tableLayoutPanel1.Controls.Add(dataGridView1, 1, 10);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -164,65 +170,16 @@
             tableLayoutPanelLastSolveQuestion.Size = new Size(228, 179);
             tableLayoutPanelLastSolveQuestion.TabIndex = 0;
             // 
-            // label1
+            // label8
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(39, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(54, 15);
-            label1.TabIndex = 1;
-            label1.Text = "билет 40";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(107, 25);
-            label2.Name = "label2";
-            label2.Size = new Size(45, 25);
-            label2.TabIndex = 2;
-            label2.Text = "правильные ответы";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(159, 25);
-            label3.Name = "label3";
-            label3.Size = new Size(64, 25);
-            label3.TabIndex = 3;
-            label3.Text = "количетсво ошибок";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Dock = DockStyle.Fill;
-            label4.Font = new Font("Lucida Bright", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(3, 25);
-            label4.Name = "label4";
-            label4.Size = new Size(30, 25);
-            label4.TabIndex = 4;
-            label4.Text = "1";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Dock = DockStyle.Fill;
-            label5.Font = new Font("Lucida Bright", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(3, 50);
-            label5.Name = "label5";
-            label5.Size = new Size(30, 25);
-            label5.TabIndex = 5;
-            label5.Text = "2";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Dock = DockStyle.Fill;
-            label6.Font = new Font("Lucida Bright", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(3, 75);
-            label6.Name = "label6";
-            label6.Size = new Size(30, 25);
-            label6.TabIndex = 6;
-            label6.Text = "3";
+            label8.AutoSize = true;
+            label8.Dock = DockStyle.Fill;
+            label8.Font = new Font("Lucida Bright", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(3, 125);
+            label8.Name = "label8";
+            label8.Size = new Size(30, 25);
+            label8.TabIndex = 8;
+            label8.Text = "5";
             // 
             // label7
             // 
@@ -235,16 +192,100 @@
             label7.TabIndex = 7;
             label7.Text = "4";
             // 
-            // label8
+            // label6
             // 
-            label8.AutoSize = true;
-            label8.Dock = DockStyle.Fill;
-            label8.Font = new Font("Lucida Bright", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(3, 125);
-            label8.Name = "label8";
-            label8.Size = new Size(30, 25);
-            label8.TabIndex = 8;
-            label8.Text = "5";
+            label6.AutoSize = true;
+            label6.Dock = DockStyle.Fill;
+            label6.Font = new Font("Lucida Bright", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(3, 75);
+            label6.Name = "label6";
+            label6.Size = new Size(30, 25);
+            label6.TabIndex = 6;
+            label6.Text = "3";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Dock = DockStyle.Fill;
+            label5.Font = new Font("Lucida Bright", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(3, 50);
+            label5.Name = "label5";
+            label5.Size = new Size(30, 25);
+            label5.TabIndex = 5;
+            label5.Text = "2";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(159, 25);
+            label3.Name = "label3";
+            label3.Size = new Size(64, 25);
+            label3.TabIndex = 3;
+            label3.Text = "количетсво ошибок";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(107, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(45, 25);
+            label2.TabIndex = 2;
+            label2.Text = "правильные ответы";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(39, 25);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 15);
+            label1.TabIndex = 1;
+            label1.Text = "билет 40";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Dock = DockStyle.Fill;
+            label4.Font = new Font("Lucida Bright", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(3, 25);
+            label4.Name = "label4";
+            label4.Size = new Size(30, 25);
+            label4.TabIndex = 4;
+            label4.Text = "1";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { TicketNumber, CorrectAnswersCount, AllQuestionCount });
+            tableLayoutPanel1.SetColumnSpan(dataGridView1, 7);
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(43, 233);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            tableLayoutPanel1.SetRowSpan(dataGridView1, 9);
+            dataGridView1.Size = new Size(274, 201);
+            dataGridView1.TabIndex = 1;
+            // 
+            // TicketNumber
+            // 
+            TicketNumber.FillWeight = 70F;
+            TicketNumber.HeaderText = "Номер билета";
+            TicketNumber.Name = "TicketNumber";
+            TicketNumber.ReadOnly = true;
+            TicketNumber.Width = 50;
+            // 
+            // CorrectAnswersCount
+            // 
+            CorrectAnswersCount.HeaderText = "Количество правильных ответов";
+            CorrectAnswersCount.Name = "CorrectAnswersCount";
+            CorrectAnswersCount.ReadOnly = true;
+            // 
+            // AllQuestionCount
+            // 
+            AllQuestionCount.HeaderText = "Всего вопросов";
+            AllQuestionCount.Name = "AllQuestionCount";
+            AllQuestionCount.ReadOnly = true;
             // 
             // UserMenu
             // 
@@ -259,6 +300,7 @@
             groupBoxLastSolveTicket.ResumeLayout(false);
             tableLayoutPanelLastSolveQuestion.ResumeLayout(false);
             tableLayoutPanelLastSolveQuestion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -277,5 +319,9 @@
         private Label label3;
         private Label label2;
         private Label label4;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn TicketNumber;
+        private DataGridViewTextBoxColumn CorrectAnswersCount;
+        private DataGridViewTextBoxColumn AllQuestionCount;
     }
 }

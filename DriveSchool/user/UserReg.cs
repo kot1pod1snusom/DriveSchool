@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace DriveSchool.user
 {
-    internal class User
+    internal class UserReg
     {
         public string Id;
         public string Name;
+
+        //Путь до файла с данными пользователя 
+        private string UserDataPath;
 
         private string password;
 
@@ -20,6 +23,7 @@ namespace DriveSchool.user
             set { password = value; }
         }
 
+        public string GetUserDataPath() { return UserDataPath; }
 
     }
 }

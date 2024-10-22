@@ -91,7 +91,7 @@ namespace DriveSchool
 
         private void buttonRegistr_Click(object sender, EventArgs e)
         {
-            User user = new User()
+            UserReg user = new UserReg()
             {
                 Name = textBoxName.Text,
                 Password = password,
@@ -108,7 +108,7 @@ namespace DriveSchool
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            User user = new User() { 
+            UserReg user = new UserReg() { 
                 Password = password,
                 Name = textBoxName.Text,
                 Id = "-1"
@@ -117,7 +117,7 @@ namespace DriveSchool
             user = UserJsonDBWork.LogIn(user);
 
             if (user.Id == "-1") {
-                MessageBox.Show("Данный пользователь уже зарегистрирован");
+                MessageBox.Show("Неврный логин или пароль");
             }
         }
     }
