@@ -22,9 +22,7 @@ namespace DriveSchool.user
                 users.Add(user);
 
                 string jsn = Newtonsoft.Json.JsonConvert.SerializeObject(users);
-
                 File.WriteAllText(path, jsn);
-
             }
             catch (Exception)
             {
@@ -71,7 +69,6 @@ namespace DriveSchool.user
             List<UserReg> users = GetUsersFromFile();
             string MaxId = users[users.Count - 1].Id;
             user.Id = MaxId;
-            users.Clear();
            
             PutNewUserInFile(user);
             return user;
@@ -90,7 +87,6 @@ namespace DriveSchool.user
                 }
 
             }
-
             return user;
         }
 

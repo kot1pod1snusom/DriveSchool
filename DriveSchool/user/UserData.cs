@@ -11,9 +11,5 @@ namespace DriveSchool.user
         public string name;
         public List<UserTicketStatus> UserTicketStatusList = new List<UserTicketStatus>();
         public List<UserTicketStatus> LastFiveTickets = new List<UserTicketStatus>();
-
-        
-
-
     }
 }

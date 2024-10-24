@@ -9,7 +9,52 @@ using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
 
 class TicketsWork
-{                                                   //Билет 11 -пример   
+{
+    public static List<Question> GetTopicTicketFromFile(string fileName, bool CategoryId)
+    {
+        string path = "questions";
+        if (CategoryId == true)
+        {
+            path += "\\A_B\\";
+        }
+        else
+        {
+            path += "\\C_D\\";
+        }
+
+        path += "topics\\" + fileName + ".json";
+
+        string jsn = File.ReadAllText(path);
+        List<Question> questions = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Question>>(jsn);
+        return questions;
+    }
+
+    public static List<string> GetTopicsName(bool CategoryId)
+    {
+        string path = "questions";
+        if (CategoryId == true)
+        {
+            path += "\\A_B\\";
+        }
+        else
+        {
+            path += "\\C_D\\";
+        }
+        path += "topics";
+
+        List<string> result = new List<string>();
+        string[] files = Directory.GetFiles(path);
+        for (int i = 0; i < files.Length; i++)
+        {
+            FileInfo fileInfo = new FileInfo(files[i]);
+            result.Add(Path.GetFileNameWithoutExtension(fileInfo.Name));
+        }
+
+        return result;
+    }
+
+
+    //Билет 11 -пример   
     public static List<Question> GetTicketFromFile(string TicketNumber, bool CategoryId)
     {
         string path = "questions";

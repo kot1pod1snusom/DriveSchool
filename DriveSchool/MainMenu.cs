@@ -48,6 +48,60 @@ namespace DriveSchool
             }
         }
 
+        private void buttonTopicChouse_click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            List<Question> topics = TicketsWork.GetTopicTicketFromFile(button.Text, CategoryChose);
+            TicketsForm ticketsForm = new TicketsForm(topics, false);
+            Hide();
+            ticketsForm.ShowDialog();
+            Show();
+
+        }
+
+        private void addTopicsButton(object sender, EventArgs e)
+        {
+            List<string> topics = TicketsWork.GetTopicsName(CategoryChose);
+
+            tableLayoutPanel2.Controls.Clear();
+            int x = 1;
+            int y = 1;
+            for (int i = 1; i < topics.Count; i++)
+            {
+                Button button = new Button()
+                {
+                    Text = topics[i],
+                    Enabled = true,
+                    Dock = DockStyle.Fill,
+                    BackColor = Color.LightGray
+                };
+                button.Click += buttonTopicChouse_click;
+
+                tableLayoutPanel2.Controls.Add(button, x, y);
+                tableLayoutPanel2.SetColumnSpan(button, 4);
+                tableLayoutPanel2.SetRowSpan(button, 3);
+
+                x += 4;
+                if (x >= 18)
+                {
+                    x = 1;
+                    y += 3;
+                }
+            }
+
+            Button but = new Button()
+            {
+                Text = "Вернуться назад",
+                Dock = DockStyle.Fill,
+                BackColor = Color.LightGray
+            };
+            but.Click += buttonReturnToChouse_Click;
+
+            tableLayoutPanel2.Controls.Add(but, x, y);
+            tableLayoutPanel2.SetColumnSpan(but, 6);
+            tableLayoutPanel2.SetRowSpan(but, 4);
+        }
+
         private void ComboBoxChouseCategoryCreate()
         {
             ComboBox comboBox = new ComboBox()
@@ -116,6 +170,21 @@ namespace DriveSchool
             tableLayoutPanel2.SetRow(buttonTicket, 2);
             tableLayoutPanel2.SetColumnSpan(buttonTicket, 5);
             tableLayoutPanel2.SetRowSpan(buttonTicket, 3);
+            
+            
+            Button buttomTopics = new Button()
+            {
+                Dock = DockStyle.Fill,
+                Text = "Вопросы по темама",
+                BackColor = Color.LightGray
+            };
+            buttomTopics.Click += addTopicsButton;
+
+            tableLayoutPanel2.Controls.Add(buttomTopics);
+            tableLayoutPanel2.SetColumn(buttomTopics, 2);
+            tableLayoutPanel2.SetRow(buttomTopics, 5);
+            tableLayoutPanel2.SetColumnSpan(buttomTopics, 5);
+            tableLayoutPanel2.SetRowSpan(buttomTopics, 3);
 
         }
 

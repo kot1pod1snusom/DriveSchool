@@ -63,7 +63,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 16, 0);
-            tableLayoutPanel1.Controls.Add(panel1, 4, 4);
+            tableLayoutPanel1.Controls.Add(panel1, 3, 3);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -117,13 +117,13 @@
             // 
             panel1.BackColor = Color.White;
             panel1.CausesValidation = false;
-            tableLayoutPanel1.SetColumnSpan(panel1, 12);
+            tableLayoutPanel1.SetColumnSpan(panel1, 14);
             panel1.Controls.Add(tableLayoutPanel2);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(167, 95);
+            panel1.Location = new Point(126, 72);
             panel1.Name = "panel1";
-            tableLayoutPanel1.SetRowSpan(panel1, 12);
-            panel1.Size = new Size(486, 270);
+            tableLayoutPanel1.SetRowSpan(panel1, 14);
+            panel1.Size = new Size(568, 316);
             panel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -173,7 +173,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
-            tableLayoutPanel2.Size = new Size(486, 270);
+            tableLayoutPanel2.Size = new Size(568, 316);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // MainMenu

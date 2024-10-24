@@ -130,9 +130,9 @@
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.11715F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.85942F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0234318F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.7303371F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.79401F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.6629219F));
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -212,7 +212,7 @@
             // 
             label1.AutoSize = true;
             label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 15.75F);
             label1.Location = new Point(44, 21);
             label1.Name = "label1";
             label1.Size = new Size(90, 36);
@@ -222,7 +222,7 @@
             // labelTime
             // 
             labelTime.AutoSize = true;
-            labelTime.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            labelTime.Font = new Font("Segoe UI", 18F);
             labelTime.Location = new Point(140, 21);
             labelTime.Name = "labelTime";
             labelTime.Size = new Size(71, 32);
@@ -252,7 +252,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 15.75F);
             label2.Location = new Point(11, 14);
             label2.Name = "label2";
             label2.Size = new Size(185, 60);
@@ -262,7 +262,7 @@
             // labelFinishedQuestios
             // 
             labelFinishedQuestios.AutoSize = true;
-            labelFinishedQuestios.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            labelFinishedQuestios.Font = new Font("Segoe UI", 24F);
             labelFinishedQuestios.Location = new Point(203, 14);
             labelFinishedQuestios.Name = "labelFinishedQuestios";
             labelFinishedQuestios.Size = new Size(37, 45);
@@ -290,7 +290,7 @@
             // buttonUseHint
             // 
             buttonUseHint.Dock = DockStyle.Fill;
-            buttonUseHint.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonUseHint.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             buttonUseHint.Location = new Point(49, 26);
             buttonUseHint.Name = "buttonUseHint";
             buttonUseHint.Size = new Size(196, 34);
