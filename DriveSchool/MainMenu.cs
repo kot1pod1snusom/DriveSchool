@@ -175,7 +175,7 @@ namespace DriveSchool
             Button buttomTopics = new Button()
             {
                 Dock = DockStyle.Fill,
-                Text = "Вопросы по темама",
+                Text = "Вопросы по темам",
                 BackColor = Color.LightGray
             };
             buttomTopics.Click += addTopicsButton;
