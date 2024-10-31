@@ -32,7 +32,7 @@
             label1 = new Label();
             buttonTicketButtonsOut = new Button();
             buttonTopicButtonsOut = new Button();
-            button2 = new Button();
+            buttonStartExam = new Button();
             panel1 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
             comboBoxChouseCategory = new ComboBox();
@@ -66,7 +66,7 @@
             tableLayoutPanel1.Controls.Add(label1, 5, 1);
             tableLayoutPanel1.Controls.Add(buttonTicketButtonsOut, 3, 16);
             tableLayoutPanel1.Controls.Add(buttonTopicButtonsOut, 7, 16);
-            tableLayoutPanel1.Controls.Add(button2, 11, 16);
+            tableLayoutPanel1.Controls.Add(buttonStartExam, 11, 16);
             tableLayoutPanel1.Controls.Add(panel1, 3, 6);
             tableLayoutPanel1.Controls.Add(comboBoxChouseCategory, 15, 16);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -1219,7 +1219,7 @@
             buttonTicketButtonsOut.TabIndex = 1;
             buttonTicketButtonsOut.Text = "Решать билеты";
             buttonTicketButtonsOut.UseVisualStyleBackColor = false;
-            buttonTicketButtonsOut.Click += buttonTicketStart_Click;
+            buttonTicketButtonsOut.Click += buttonTicketStartOut_Click;
             // 
             // buttonTopicButtonsOut
             // 
@@ -1235,18 +1235,19 @@
             buttonTopicButtonsOut.UseVisualStyleBackColor = false;
             buttonTopicButtonsOut.Click += buttonTopicButtonsOut_Click;
             // 
-            // button2
+            // buttonStartExam
             // 
-            button2.BackColor = SystemColors.ControlDarkDark;
-            tableLayoutPanel1.SetColumnSpan(button2, 3);
-            button2.Dock = DockStyle.Fill;
-            button2.Location = new Point(476, 419);
-            button2.Name = "button2";
-            tableLayoutPanel1.SetRowSpan(button2, 2);
-            button2.Size = new Size(123, 46);
-            button2.TabIndex = 3;
-            button2.Text = "Начать экзамен";
-            button2.UseVisualStyleBackColor = false;
+            buttonStartExam.BackColor = SystemColors.ControlDarkDark;
+            tableLayoutPanel1.SetColumnSpan(buttonStartExam, 3);
+            buttonStartExam.Dock = DockStyle.Fill;
+            buttonStartExam.Location = new Point(476, 419);
+            buttonStartExam.Name = "buttonStartExam";
+            tableLayoutPanel1.SetRowSpan(buttonStartExam, 2);
+            buttonStartExam.Size = new Size(123, 46);
+            buttonStartExam.TabIndex = 3;
+            buttonStartExam.Text = "Начать экзамен";
+            buttonStartExam.UseVisualStyleBackColor = false;
+            buttonStartExam.Click += buttonStartExam_Click;
             // 
             // panel1
             // 
@@ -1343,7 +1344,7 @@
         private Label label1;
         private Button buttonTicketButtonsOut;
         private Button buttonTopicButtonsOut;
-        private Button button2;
+        private Button buttonStartExam;
         private ComboBox comboBoxChouseCategory;
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel2;

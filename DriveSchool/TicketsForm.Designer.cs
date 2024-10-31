@@ -63,6 +63,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = Color.Black;
             tableLayoutPanel1.ColumnCount = 20;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
@@ -190,7 +191,7 @@
             // 
             // tableLayoutPanel5
             // 
-            tableLayoutPanel5.BackColor = Color.Silver;
+            tableLayoutPanel5.BackColor = Color.DimGray;
             tableLayoutPanel5.ColumnCount = 4;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.9931736F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.7645035F));
@@ -213,6 +214,7 @@
             label1.AutoSize = true;
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI", 15.75F);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(44, 21);
             label1.Name = "label1";
             label1.Size = new Size(90, 36);
@@ -223,6 +225,7 @@
             // 
             labelTime.AutoSize = true;
             labelTime.Font = new Font("Segoe UI", 18F);
+            labelTime.ForeColor = Color.White;
             labelTime.Location = new Point(140, 21);
             labelTime.Name = "labelTime";
             labelTime.Size = new Size(71, 32);
@@ -231,7 +234,7 @@
             // 
             // tableLayoutPanel6
             // 
-            tableLayoutPanel6.BackColor = Color.Gainsboro;
+            tableLayoutPanel6.BackColor = Color.FromArgb(64, 64, 64);
             tableLayoutPanel6.ColumnCount = 4;
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.73037553F));
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65.52901F));
@@ -253,6 +256,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15.75F);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(11, 14);
             label2.Name = "label2";
             label2.Size = new Size(185, 60);
@@ -263,6 +267,7 @@
             // 
             labelFinishedQuestios.AutoSize = true;
             labelFinishedQuestios.Font = new Font("Segoe UI", 24F);
+            labelFinishedQuestios.ForeColor = Color.White;
             labelFinishedQuestios.Location = new Point(203, 14);
             labelFinishedQuestios.Name = "labelFinishedQuestios";
             labelFinishedQuestios.Size = new Size(37, 45);
@@ -271,7 +276,7 @@
             // 
             // tableLayoutPanel7
             // 
-            tableLayoutPanel7.BackColor = Color.WhiteSmoke;
+            tableLayoutPanel7.BackColor = Color.DimGray;
             tableLayoutPanel7.ColumnCount = 3;
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.9322033F));
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 68.81356F));

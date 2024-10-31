@@ -23,7 +23,7 @@ namespace DriveSchool
             InitializeComponent();
             questionList = questions;
             //Создание кнопок выбора вопросов
-            for (int i = 1; i <= 20; i++)
+            for (int i = 1; i <= questions.Count; i++)
             {
                 Button button = new Button()
                 {
@@ -316,7 +316,7 @@ namespace DriveSchool
             //Отображаем вариванты ответа
             for (int i = 0; i < question.answers.Count; i++)
             {
-                LinkLabel label1 = new LinkLabel() { Dock = DockStyle.Fill, Text = question.answers[i].answer_text, Name = "AnswerLanel1" };
+                LinkLabel label1 = new LinkLabel() { Dock = DockStyle.Fill, Text = question.answers[i].answer_text, Name = "AnswerLabel1" };
                 label1.Click += LinkLabelAnswer_click;
                 tableLayoutPanel2.Controls.Add(label1, 0, rowsCount);
                 tableLayoutPanel2.SetColumnSpan(label1, 3);

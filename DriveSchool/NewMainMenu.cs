@@ -35,7 +35,7 @@ namespace DriveSchool
             else { CategoryId = false; }
         }
 
-        private void printChousenButtons(List<string> ticketNames)
+        private void printChousenButtonsTopics(List<string> ticketNames)
         {
             tableLayoutPanel2.Controls.Clear();
             int x = 1;
@@ -49,21 +49,23 @@ namespace DriveSchool
                     Dock = DockStyle.Fill,
                     BackColor = SystemColors.ControlDarkDark
                 };
+                button.Click += buttonStartTopic_Click;
 
                 tableLayoutPanel2.Controls.Add(button, x, y);
                 tableLayoutPanel2.SetColumnSpan(button, 9);
-                tableLayoutPanel2.SetRowSpan(button, 6);
+                tableLayoutPanel2.SetRowSpan(button, 2);
 
                 x += 9;
                 if (x >= 18)
                 {
                     x = 1;
-                    y += 6;
+                    y += 2;
                 }
             }
         }
 
-        private void printChousenButtons()
+        //Default realisation for standart tickets chouse out
+        private void printChousenButtonsTickets()
         {
             tableLayoutPanel2.Controls.Clear();
             int x = 1;
@@ -77,6 +79,8 @@ namespace DriveSchool
                     Dock = DockStyle.Fill,
                     BackColor = SystemColors.ControlDarkDark
                 };
+                button.Click += buttonStartTicket_Click;
+
 
                 tableLayoutPanel2.Controls.Add(button, x, y);
                 tableLayoutPanel2.SetColumnSpan(button, 3);
@@ -91,7 +95,7 @@ namespace DriveSchool
             }
         }
 
-        private void buttonTicketStart_Click(object sender, EventArgs e)
+        private void buttonTicketStartOut_Click(object sender, EventArgs e)
         {
             List<string> ticketNames = new List<string>();
             for (int i = 1; i <= 40; i++)
@@ -99,13 +103,43 @@ namespace DriveSchool
                 ticketNames.Add($"Билет {i}");
             }
 
-            printChousenButtons();
+            printChousenButtonsTickets();
         }
 
         private void buttonTopicButtonsOut_Click(object sender, EventArgs e)
         {
             List<string> topicsNames = TicketsWork.GetTopicsName(CategoryId);
-            printChousenButtons(topicsNames);
+            printChousenButtonsTopics(topicsNames);
+        }
+
+        private void buttonStartTopic_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            List<Question> ques = TicketsWork.GetTopicTicketFromFile(button.Text, CategoryId);
+            TicketsForm ticketsForm = new TicketsForm(ques, false);
+            Hide();
+            ticketsForm.ShowDialog();
+            Show();
+        }
+
+        private void buttonStartTicket_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            List<Question> ques = TicketsWork.GetTicketFromFile(button.Text, CategoryId);
+            TicketsForm ticketsForm = new TicketsForm(ques, false);
+            Hide();
+            ticketsForm.ShowDialog();
+            Show();
+        } 
+
+        private void buttonStartExam_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            List<Question> ques = TicketsWork.GetQuestionsForExam(CategoryId);
+            TicketsForm ticketsForm = new TicketsForm(ques, true);
+            Hide();
+            ticketsForm.ShowDialog();
+            Show();
         }
     }
 }
