@@ -5,8 +5,6 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DriveSchool", "DriveSchool\DriveSchool.csproj", "{903E065C-26E0-4B62-A255-887FCFCA5999}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DriverSchoolSetup", "DriverSchoolSetup\DriverSchoolSetup.vdproj", "{7B23636F-3580-41F1-9916-C4B64E059E75}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,8 +15,6 @@ Global
 		{903E065C-26E0-4B62-A255-887FCFCA5999}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{903E065C-26E0-4B62-A255-887FCFCA5999}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{903E065C-26E0-4B62-A255-887FCFCA5999}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B23636F-3580-41F1-9916-C4B64E059E75}.Debug|Any CPU.ActiveCfg = Debug
-		{7B23636F-3580-41F1-9916-C4B64E059E75}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -63,7 +63,7 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = Color.Black;
+            tableLayoutPanel1.BackColor = SystemColors.ActiveCaption;
             tableLayoutPanel1.ColumnCount = 20;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
@@ -173,6 +173,7 @@
             // 
             // tableLayoutPanel3
             // 
+            tableLayoutPanel3.BackColor = Color.LightGray;
             tableLayoutPanel3.ColumnCount = 3;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
@@ -191,7 +192,7 @@
             // 
             // tableLayoutPanel5
             // 
-            tableLayoutPanel5.BackColor = Color.DimGray;
+            tableLayoutPanel5.BackColor = SystemColors.ControlDark;
             tableLayoutPanel5.ColumnCount = 4;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.9931736F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.7645035F));
@@ -234,7 +235,7 @@
             // 
             // tableLayoutPanel6
             // 
-            tableLayoutPanel6.BackColor = Color.FromArgb(64, 64, 64);
+            tableLayoutPanel6.BackColor = SystemColors.ControlDark;
             tableLayoutPanel6.ColumnCount = 4;
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.73037553F));
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65.52901F));
@@ -276,7 +277,7 @@
             // 
             // tableLayoutPanel7
             // 
-            tableLayoutPanel7.BackColor = Color.DimGray;
+            tableLayoutPanel7.BackColor = SystemColors.ButtonFace;
             tableLayoutPanel7.ColumnCount = 3;
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.9322033F));
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 68.81356F));

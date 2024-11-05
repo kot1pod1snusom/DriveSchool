@@ -43,6 +43,37 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:2"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 и x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.8.0.Arm64"
+                    {
+                    "Name" = "8:Среда выполнения .NET 8.0.8 (Arm64)"
+                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.8.0.Arm64"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.8.0.x64"
+                    {
+                    "Name" = "8:Среда выполнения .NET 8.0.8 (x64)"
+                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.8.0.x64"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.8.0.x86"
+                    {
+                    "Name" = "8:Среда выполнения .NET 8.0.8 (x86)"
+                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.8.0.x86"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -59,6 +90,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -76,13 +115,23 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_44DF6DDAA4934C84AECE3E118D1006FF"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
             }
         }
         "File"
         {
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F5C2ABAFB22B4C76AB1F9AA4D8476D12"
             {
-            "SourcePath" = "8:..\\..\\..\\Downloads\\609oncomingpolicecar_100542.ico"
+            "SourcePath" = "8:D:\\Downloads\\609oncomingpolicecar_100542.ico"
             "TargetName" = "8:609oncomingpolicecar_100542.ico"
             "Tag" = "8:"
             "Folder" = "8:_7ABE52B796824B15A0E68C099DE9BD96"
@@ -293,7 +342,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D171644025E74785894D09FA0A985656"
             {
-            "Name" = "8:DriveShcool"
+            "Name" = "8:DriveSchool"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
