@@ -63,7 +63,7 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = SystemColors.ActiveCaption;
+            tableLayoutPanel1.BackColor = Color.Black;
             tableLayoutPanel1.ColumnCount = 20;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
@@ -130,6 +130,7 @@
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.BackColor = Color.DimGray;
             tableLayoutPanel2.ColumnCount = 3;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.7303371F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.79401F));
@@ -192,7 +193,7 @@
             // 
             // tableLayoutPanel5
             // 
-            tableLayoutPanel5.BackColor = SystemColors.ControlDark;
+            tableLayoutPanel5.BackColor = Color.Gray;
             tableLayoutPanel5.ColumnCount = 4;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.9931736F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.7645035F));
@@ -235,7 +236,7 @@
             // 
             // tableLayoutPanel6
             // 
-            tableLayoutPanel6.BackColor = SystemColors.ControlDark;
+            tableLayoutPanel6.BackColor = SystemColors.ButtonShadow;
             tableLayoutPanel6.ColumnCount = 4;
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.73037553F));
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65.52901F));
@@ -277,7 +278,7 @@
             // 
             // tableLayoutPanel7
             // 
-            tableLayoutPanel7.BackColor = SystemColors.ButtonFace;
+            tableLayoutPanel7.BackColor = Color.Gray;
             tableLayoutPanel7.ColumnCount = 3;
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.9322033F));
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 68.81356F));
@@ -295,6 +296,7 @@
             // 
             // buttonUseHint
             // 
+            buttonUseHint.BackColor = Color.DarkGray;
             buttonUseHint.Dock = DockStyle.Fill;
             buttonUseHint.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             buttonUseHint.Location = new Point(49, 26);
@@ -302,7 +304,7 @@
             buttonUseHint.Size = new Size(196, 34);
             buttonUseHint.TabIndex = 0;
             buttonUseHint.Text = "Использовать подсказку";
-            buttonUseHint.UseVisualStyleBackColor = true;
+            buttonUseHint.UseVisualStyleBackColor = false;
             buttonUseHint.Click += buttonUseHint_Click;
             // 
             // panel3
@@ -320,6 +322,7 @@
             // 
             // tableLayoutPanel8
             // 
+            tableLayoutPanel8.BackColor = Color.Gray;
             tableLayoutPanel8.ColumnCount = 1;
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
@@ -340,6 +343,7 @@
             // 
             labelTicketNumber.AutoSize = true;
             labelTicketNumber.Dock = DockStyle.Fill;
+            labelTicketNumber.ForeColor = Color.White;
             labelTicketNumber.Location = new Point(3, 0);
             labelTicketNumber.Name = "labelTicketNumber";
             labelTicketNumber.Size = new Size(78, 39);
@@ -349,6 +353,7 @@
             // labelQuestionNumber
             // 
             labelQuestionNumber.AutoSize = true;
+            labelQuestionNumber.ForeColor = Color.White;
             labelQuestionNumber.Location = new Point(3, 39);
             labelQuestionNumber.Name = "labelQuestionNumber";
             labelQuestionNumber.Size = new Size(48, 15);
@@ -358,6 +363,7 @@
             // labelQuestionType
             // 
             labelQuestionType.AutoSize = true;
+            labelQuestionType.ForeColor = Color.White;
             labelQuestionType.Location = new Point(3, 78);
             labelQuestionType.Name = "labelQuestionType";
             labelQuestionType.Size = new Size(76, 15);

@@ -29,7 +29,8 @@ namespace DriveSchool
                 {
                     Name = $"changeQuestionButton{i}",
                     Text = $"{i}",
-                    BackColor = Color.White,
+                    BackColor = Color.DarkGray,
+                    ForeColor = SystemColors.ControlText,
                     Size = new Size(45, 20)
                 };
                 button.Click += buttonChangeQuestion_click;
@@ -127,7 +128,8 @@ namespace DriveSchool
                 {
                     Name = $"changeQuestionButton{i}",
                     Text = $"{i}",
-                    BackColor = Color.White,
+                    BackColor = Color.DarkGray,
+                    ForeColor = SystemColors.ControlText,
                     Size = new Size(45, 20)
                 };
                 button.Click += buttonChangeQuestion_click;
@@ -168,7 +170,6 @@ namespace DriveSchool
                         OutNewQuestion();
                         QuestionOut(questionList[activeQuestionIndex]);
                         return;
-                        break;
                     case 1:
                         passOrNor = true;
                         break;
@@ -309,6 +310,7 @@ namespace DriveSchool
 
             //Отображаем вопрос
             Label label = new Label() { Dock = DockStyle.Fill, Text = question.question, Name = "QuestionTextLabel" };
+            label.ForeColor = Color.White;
             tableLayoutPanel2.Controls.Add(label, 0, rowsCount);
             tableLayoutPanel2.SetColumnSpan(label, 3);
             rowsCount++;
@@ -317,6 +319,8 @@ namespace DriveSchool
             for (int i = 0; i < question.answers.Count; i++)
             {
                 LinkLabel label1 = new LinkLabel() { Dock = DockStyle.Fill, Text = question.answers[i].answer_text, Name = "AnswerLabel1" };
+                label1.ForeColor = Color.White;
+                label1.LinkColor = Color.White;
                 label1.Click += LinkLabelAnswer_click;
                 tableLayoutPanel2.Controls.Add(label1, 0, rowsCount);
                 tableLayoutPanel2.SetColumnSpan(label1, 3);
@@ -345,6 +349,7 @@ namespace DriveSchool
 
             //Отображаем вопрос
             Label label = new Label() { Dock = DockStyle.Fill, Text = question.question, Name = "QuestionTextLabel" };
+            label.ForeColor = Color.White;
             tableLayoutPanel2.Controls.Add(label, 0, rowsCount);
             tableLayoutPanel2.SetColumnSpan(label, 3);
             rowsCount++;
@@ -379,7 +384,12 @@ namespace DriveSchool
             {
                 for (int i = 0; i < question.answers.Count; i++)
                 {
-                    LinkLabel label1 = new LinkLabel() { Dock = DockStyle.Fill, Text = question.answers[i].answer_text };
+                    LinkLabel label1 = new LinkLabel() { 
+                        Dock = DockStyle.Fill, 
+                        Text = question.answers[i].answer_text,
+                        ForeColor = Color.White,
+                        LinkColor = Color.White
+                    };
                     label1.Click += LinkLabelAnswer_click;
                     tableLayoutPanel2.Controls.Add(label1, 0, rowsCount);
                     tableLayoutPanel2.SetColumnSpan(label1, 3);
