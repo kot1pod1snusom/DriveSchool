@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
-using System.Net.Http.Headers;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,182 +17,82 @@ namespace DriveSchool
     public partial class MainMenu : Form
     {
         //true - A,B   false = C,D 
-        private bool CategoryChose = new bool();
+        private bool CategoryId;
+
 
         public MainMenu()
         {
+            if (CheckUpdate()) {
+                Environment.Exit(0);
+            }         
             InitializeComponent();
-            CheckUpdate();
-            labelUser.Size = flowLayoutPanel1.Size;
-            labelUser.Text = "Тут будет ваше имя";
-            addChousenButton();
+            comboBoxChouseCategory.Items.Add("A/B");
+            comboBoxChouseCategory.Items.Add("C/D");
+            comboBoxChouseCategory.SelectedIndex = 0;
+            comboBoxChouseCategory.SelectedIndexChanged += comboBoxChouseCategory_changedSelectionIndex;
         }
 
-        private void CheckUpdate()
+        private bool CheckUpdate()
         {
             WebClient client = new WebClient();
 
-
             if (client.DownloadString("https://pastebin.com/SrTLr3Z7").Contains(File.ReadAllText("version.txt")))
             {
-                return;
+                return false;
             }
 
             DialogResult dialogResult = MessageBox.Show("Обнаружена новая версия программы. Хотите обновить прямо сейчас", "Обновлене", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //Открывает ссылку на проект гитхаб
-                Close();
+                Process.Start(new ProcessStartInfo("https://github.com/kot1pod1snusom/DriveSchool/releases") { UseShellExecute = true });
+                return true;
             }
-            else if (dialogResult == DialogResult.No)
+
+            return false;
+        }
+
+
+
+        private void comboBoxChouseCategory_changedSelectionIndex(object sender, EventArgs e)
+        {
+            if (comboBoxChouseCategory.Text == "A/B")
             {
-
+                CategoryId = true;
             }
+            else { CategoryId = false; }
         }
 
-        private void buttonTopicChouse_click(object sender, EventArgs e)
+        private void printChousenButtonsTopics(List<string> ticketNames)
         {
-            Button button = (Button)sender;
-            List<Question> topics = TicketsWork.GetTopicTicketFromFile(button.Text, CategoryChose);
-            TicketsForm ticketsForm = new TicketsForm(topics, false);
-            Hide();
-            ticketsForm.ShowDialog();
-            Show();
-
-        }
-
-        private void addTopicsButton(object sender, EventArgs e)
-        {
-            List<string> topics = TicketsWork.GetTopicsName(CategoryChose);
-
             tableLayoutPanel2.Controls.Clear();
             int x = 1;
             int y = 1;
-            for (int i = 1; i < topics.Count; i++)
+            for (int i = 0; i < ticketNames.Count; i++)
             {
                 Button button = new Button()
                 {
-                    Text = topics[i],
+                    Text = ticketNames[i],
                     Enabled = true,
                     Dock = DockStyle.Fill,
-                    BackColor = Color.LightGray
+                    BackColor = SystemColors.ControlDarkDark
                 };
-                button.Click += buttonTopicChouse_click;
+                button.Click += buttonStartTopic_Click;
 
                 tableLayoutPanel2.Controls.Add(button, x, y);
-                tableLayoutPanel2.SetColumnSpan(button, 4);
-                tableLayoutPanel2.SetRowSpan(button, 3);
+                tableLayoutPanel2.SetColumnSpan(button, 9);
+                tableLayoutPanel2.SetRowSpan(button, 2);
 
-                x += 4;
+                x += 9;
                 if (x >= 18)
                 {
                     x = 1;
-                    y += 3;
+                    y += 2;
                 }
             }
-
-            Button but = new Button()
-            {
-                Text = "Вернуться назад",
-                Dock = DockStyle.Fill,
-                BackColor = Color.LightGray
-            };
-            but.Click += buttonReturnToChouse_Click;
-
-            tableLayoutPanel2.Controls.Add(but, x, y);
-            tableLayoutPanel2.SetColumnSpan(but, 6);
-            tableLayoutPanel2.SetRowSpan(but, 4);
         }
 
-        private void ComboBoxChouseCategoryCreate()
-        {
-            ComboBox comboBox = new ComboBox()
-            {
-                Dock = DockStyle.Fill,
-                FormattingEnabled = true,
-                Name = "comboBoxChouseCategory",
-                TabIndex = 0
-            };
-
-            comboBox.SelectedIndexChanged += comboBoxChouseCategory_ChangeIndex;
-            comboBox.Items.Add("A, B");
-            comboBox.Items.Add("C, D");
-            comboBox.SelectedIndex = 0;
-
-            tableLayoutPanel2.Controls.Add(comboBox, 16, 2);
-            tableLayoutPanel2.SetColumnSpan(comboBox, 3);
-            tableLayoutPanel2.SetRowSpan(comboBox, 3);
-        }
-
-        private void comboBoxChouseCategory_ChangeIndex(object sender, EventArgs e)
-        {
-            ComboBox comboBox = (ComboBox)sender;
-            switch (comboBox.SelectedIndex)
-            {
-                case 0:
-                    CategoryChose = true;
-                    break;
-                case 1:
-                    CategoryChose = false;
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void addChousenButton()
-        {
-            tableLayoutPanel2.Controls.Clear();
-            ComboBoxChouseCategoryCreate();
-            Button buttonStart = new Button()
-            {
-                Dock = DockStyle.Fill,
-                Text = "Начать экзамен",
-                BackColor = Color.LightGray,
-            };
-            buttonStart.Click += buttonClickStartExam;
-
-            tableLayoutPanel2.Controls.Add(buttonStart);
-            tableLayoutPanel2.SetColumn(buttonStart, 2);
-            tableLayoutPanel2.SetRow(buttonStart, 2);
-            tableLayoutPanel2.SetColumnSpan(buttonStart, 5);
-            tableLayoutPanel2.SetRowSpan(buttonStart, 3);
-
-
-            Button buttonTicket = new Button()
-            {
-                Dock = DockStyle.Fill,
-                Text = "Решать билеты",
-                BackColor = Color.LightGray,
-            };
-            buttonTicket.Click += buttonStartTicket_Click;
-
-            tableLayoutPanel2.Controls.Add(buttonTicket);
-            tableLayoutPanel2.SetColumn(buttonTicket, 10);
-            tableLayoutPanel2.SetRow(buttonTicket, 2);
-            tableLayoutPanel2.SetColumnSpan(buttonTicket, 5);
-            tableLayoutPanel2.SetRowSpan(buttonTicket, 3);
-            
-            
-            Button buttomTopics = new Button()
-            {
-                Dock = DockStyle.Fill,
-                Text = "Вопросы по темам",
-                BackColor = Color.LightGray
-            };
-            buttomTopics.Click += addTopicsButton;
-
-            tableLayoutPanel2.Controls.Add(buttomTopics);
-            tableLayoutPanel2.SetColumn(buttomTopics, 2);
-            tableLayoutPanel2.SetRow(buttomTopics, 5);
-            tableLayoutPanel2.SetColumnSpan(buttomTopics, 5);
-            tableLayoutPanel2.SetRowSpan(buttomTopics, 3);
-
-        }
-
-
-        //Добавляет кнопки при выборе предметов 
-        private void addTicketButton()
+        //Default realisation for standart tickets chouse out
+        private void printChousenButtonsTickets()
         {
             tableLayoutPanel2.Controls.Clear();
             int x = 1;
@@ -202,9 +104,9 @@ namespace DriveSchool
                     Text = $"Билет {i}",
                     Enabled = true,
                     Dock = DockStyle.Fill,
-                    BackColor = Color.LightGray
+                    BackColor = SystemColors.ControlDarkDark
                 };
-                button.Click += buttonTicketClick;
+                button.Click += buttonStartTicket_Click;
 
 
                 tableLayoutPanel2.Controls.Add(button, x, y);
@@ -218,41 +120,30 @@ namespace DriveSchool
                     y += 3;
                 }
             }
+        }
 
-            Button but = new Button()
+        private void buttonTicketStartOut_Click(object sender, EventArgs e)
+        {
+            List<string> ticketNames = new List<string>();
+            for (int i = 1; i <= 40; i++)
             {
-                Text = "Вернуться назад",
-                Dock = DockStyle.Fill,
-                BackColor = Color.LightGray
-            };
-            but.Click += buttonReturnToChouse_Click;
+                ticketNames.Add($"Билет {i}");
+            }
 
-            tableLayoutPanel2.Controls.Add(but, x, y);
-            tableLayoutPanel2.SetColumnSpan(but, 6);
-            tableLayoutPanel2.SetRowSpan(but, 4);
-
+            printChousenButtonsTickets();
         }
 
-        private void buttonReturnToChouse_Click(object sender, EventArgs e)
+        private void buttonTopicButtonsOut_Click(object sender, EventArgs e)
         {
-            addChousenButton();
+            List<string> topicsNames = TicketsWork.GetTopicsName(CategoryId);
+            printChousenButtonsTopics(topicsNames);
         }
 
-        private void buttonTicketClick(object sender, EventArgs e)
+        private void buttonStartTopic_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            List<Question> ques = TicketsWork.GetTicketFromFile(button.Text, CategoryChose);
+            List<Question> ques = TicketsWork.GetTopicTicketFromFile(button.Text, CategoryId);
             TicketsForm ticketsForm = new TicketsForm(ques, false);
-            Hide();
-            ticketsForm.ShowDialog();
-            Show();
-        }
-
-        private void buttonClickStartExam(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            List<Question> ques = TicketsWork.GetQuestionsForExam(CategoryChose);
-            TicketsForm ticketsForm = new TicketsForm(ques, true);
             Hide();
             ticketsForm.ShowDialog();
             Show();
@@ -260,13 +151,22 @@ namespace DriveSchool
 
         private void buttonStartTicket_Click(object sender, EventArgs e)
         {
-            addTicketButton();
-        }
+            Button button = (Button)sender;
+            List<Question> ques = TicketsWork.GetTicketFromFile(button.Text, CategoryId);
+            TicketsForm ticketsForm = new TicketsForm(ques, false);
+            Hide();
+            ticketsForm.ShowDialog();
+            Show();
+        } 
 
-        private void labelUser_Click(object sender, EventArgs e)
+        private void buttonStartExam_Click(object sender, EventArgs e)
         {
-            RegistrMenu reg = new RegistrMenu();
-            reg.ShowDialog();
+            Button button = (Button)sender;
+            List<Question> ques = TicketsWork.GetQuestionsForExam(CategoryId);
+            TicketsForm ticketsForm = new TicketsForm(ques, true);
+            Hide();
+            ticketsForm.ShowDialog();
+            Show();
         }
     }
 }
