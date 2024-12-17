@@ -40,7 +40,7 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = SystemColors.ActiveCaption;
+            tableLayoutPanel1.BackColor = SystemColors.ActiveCaptionText;
             tableLayoutPanel1.ColumnCount = 20;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
@@ -136,6 +136,7 @@
             tableLayoutPanel1.SetColumnSpan(labelSuccessfullOrNot, 4);
             labelSuccessfullOrNot.Dock = DockStyle.Fill;
             labelSuccessfullOrNot.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelSuccessfullOrNot.ForeColor = Color.White;
             labelSuccessfullOrNot.Location = new Point(417, 280);
             labelSuccessfullOrNot.Name = "labelSuccessfullOrNot";
             labelSuccessfullOrNot.Size = new Size(178, 28);
@@ -148,19 +149,20 @@
             tableLayoutPanel1.SetColumnSpan(labelAnswersSt, 8);
             labelAnswersSt.Dock = DockStyle.Fill;
             labelAnswersSt.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelAnswersSt.ForeColor = Color.White;
             labelAnswersSt.Location = new Point(279, 336);
             labelAnswersSt.Name = "labelAnswersSt";
             labelAnswersSt.Size = new Size(362, 28);
             labelAnswersSt.TabIndex = 5;
             labelAnswersSt.Text = "Вы ответили правильно на 00 вопросов из 00";
             // 
-            // Form1
+            // TasksEndScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(934, 577);
             Controls.Add(tableLayoutPanel1);
-            Name = "Form1";
+            Name = "TasksEndScreen";
             Text = "Form1";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

@@ -197,7 +197,8 @@ namespace DriveSchool
                 tableLayoutPanel1.Controls.Add(buttonToMenu, 17, 4);
                 tableLayoutPanel1.SetColumnSpan(buttonToMenu, 2);
                 tableLayoutPanel1.SetRowSpan(buttonToMenu, 2);
-
+                activeQuestionIndex = 0;
+                QuestionOut(questionList[activeQuestionIndex], new Button { Text = "1", BackColor = Color.Black });
             }
             else if (f1.UserChouse == 2)
             {
@@ -215,7 +216,18 @@ namespace DriveSchool
             Button button = (Button)sender;
             int newActiveIndex = Convert.ToInt32(button.Text) - 1;
             activeQuestionIndex = newActiveIndex;
-            QuestionOut(questionList[activeQuestionIndex], button);
+            
+            if(button.BackColor == Color.DarkGray)
+            {
+                QuestionOut(questionList[activeQuestionIndex]);
+            }
+            else
+            {
+                QuestionOut(questionList[activeQuestionIndex], button);
+            }
+                
+
+
         }
 
         private void LinkLabelAnswer_click(object sender, EventArgs e)
@@ -363,14 +375,14 @@ namespace DriveSchool
                     {
                         if (UserAnswerIndex[Convert.ToInt32(button.Text) - 1] == i && TicketOrExam == false)
                         {
-                            label1.ForeColor = Color.Red;
+                            label1.ForeColor = Color.OrangeRed;
                         }
                     }
                     else
                     {
                         if (TicketOrExam == false)
                         {
-                            label1.ForeColor = Color.Green;
+                            label1.ForeColor = Color.Lime;
                         }
                     }
 
