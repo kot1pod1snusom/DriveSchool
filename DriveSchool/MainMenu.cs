@@ -17,7 +17,7 @@ namespace DriveSchool
     public partial class MainMenu : Form
     {
         //true - A,B   false = C,D 
-        private bool CategoryId;
+        private bool CategoryId = true;
 
 
         public MainMenu()
