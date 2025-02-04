@@ -316,8 +316,8 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(93, 127);
             panel3.Name = "panel3";
-            tableLayoutPanel1.SetRowSpan(panel3, 6);
-            panel3.Size = new Size(84, 180);
+            tableLayoutPanel1.SetRowSpan(panel3, 7);
+            panel3.Size = new Size(84, 211);
             panel3.TabIndex = 6;
             // 
             // tableLayoutPanel8
@@ -336,7 +336,9 @@
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 22.1476517F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 22.1476517F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 55.7046967F));
-            tableLayoutPanel8.Size = new Size(84, 180);
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel8.Size = new Size(84, 211);
             tableLayoutPanel8.TabIndex = 0;
             // 
             // labelTicketNumber
@@ -346,7 +348,7 @@
             labelTicketNumber.ForeColor = Color.White;
             labelTicketNumber.Location = new Point(3, 0);
             labelTicketNumber.Name = "labelTicketNumber";
-            labelTicketNumber.Size = new Size(78, 39);
+            labelTicketNumber.Size = new Size(78, 46);
             labelTicketNumber.TabIndex = 7;
             labelTicketNumber.Text = "Билет ";
             // 
@@ -354,7 +356,7 @@
             // 
             labelQuestionNumber.AutoSize = true;
             labelQuestionNumber.ForeColor = Color.White;
-            labelQuestionNumber.Location = new Point(3, 39);
+            labelQuestionNumber.Location = new Point(3, 46);
             labelQuestionNumber.Name = "labelQuestionNumber";
             labelQuestionNumber.Size = new Size(48, 15);
             labelQuestionNumber.TabIndex = 8;
@@ -364,7 +366,7 @@
             // 
             labelQuestionType.AutoSize = true;
             labelQuestionType.ForeColor = Color.White;
-            labelQuestionType.Location = new Point(3, 78);
+            labelQuestionType.Location = new Point(3, 92);
             labelQuestionType.Name = "labelQuestionType";
             labelQuestionType.Size = new Size(76, 15);
             labelQuestionType.TabIndex = 9;

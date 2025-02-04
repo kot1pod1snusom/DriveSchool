@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,6 +11,113 @@ using System.Windows.Forms.VisualStyles;
 
 class TicketsWork
 {
+    public static void AddMistakeQuestion(Question question)
+    {
+        string path = "questions";
+        if (question.ticket_category == "A,B") path += "\\A_B\\";
+        else path += "\\C_D\\";
+        path += "missQuestion.json";
+
+        string jsn = File.ReadAllText(path);
+        List<Question> questions = new List<Question>();
+        if (jsn == "")
+        {
+            questions = new List<Question>() { question };
+
+        }
+        else
+        {
+            questions = JsonConvert.DeserializeObject<List<Question>>(jsn);
+
+            if (questions.FindIndex(x => x.id == question.id) == -1)
+            {
+                questions.Add(question);
+            }
+            else
+            {
+                //Перемещение вопроса в конец
+                questions.Remove(question);
+                questions.Add(question);
+            }
+        }
+        File.WriteAllText(path, JsonConvert.SerializeObject(questions));
+
+        return;
+    }
+
+    public static void ClearMistakeQuestion(Question question)
+    {
+        string path = "questions";
+        if (question.ticket_category == "A,B") path += "\\A_B\\";
+        else path += "\\C_D\\";
+        path += "missQuestion.json";
+
+        string jsn = File.ReadAllText(path);
+
+        List<Question> questions = new List<Question>();
+        questions = JsonConvert.DeserializeObject<List<Question>>(jsn);
+
+        if (questions == null) return;
+
+        questions.Remove(question);
+
+        File.WriteAllText(path, JsonConvert.SerializeObject(questions));
+    }
+
+    public static List<Question> GetMistakeQuestions(bool CategoryId)
+    {
+        string path = "questions";
+        if (CategoryId == true) path += "\\A_B\\";
+        else path += "\\C_D\\";
+        path += "missQuestion.json";
+
+        string jsn = File.ReadAllText(path);
+
+        if (jsn == null) { return new List<Question>(); }
+
+
+        return JsonConvert.DeserializeObject<List<Question>>(jsn);
+    }
+
+
+
+
+    private static List<T> RandomSortArray<T>(List<T> a)
+    {
+        Random rand = new Random();
+        for (int i = a.Count - 1; i > 0; i--)
+        {
+            int j = rand.Next(0, i + 1);
+            T tmp = a[i];
+            a[i] = a[j];
+            a[j] = tmp;
+        }
+        return a;
+    }
+
+    public static List<Question> GetAllQuestions(bool CategoryId)
+    {
+        string path = "questions";
+        if (CategoryId == true) path += "\\A_B\\";
+        else path += "\\C_D\\";
+        path += "tickets\\";
+
+
+        List<Question> questions = new List<Question>();
+
+        foreach (string item in Directory.GetFiles(path))
+        {
+            string jsn = File.ReadAllText(item);
+            questions.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<List<Question>>(jsn));
+        }
+
+        questions = RandomSortArray<Question>(questions);
+
+        return questions;
+
+    }
+
+
     public static List<Question> GetTopicTicketFromFile(string fileName, bool CategoryId)
     {
         string path = "questions";

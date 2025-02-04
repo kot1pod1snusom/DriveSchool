@@ -18,7 +18,7 @@ namespace DriveSchool
         //true - exam, false - no exam =)
         private bool TicketOrExam;
 
-        public TicketsForm(List<Question> questions, bool ticketOrExam)
+        public TicketsForm(List<Question> questions, bool ticketOrExam, string time)
         {
             InitializeComponent();
             questionList = questions;
@@ -248,6 +248,7 @@ namespace DriveSchool
                     button.BackColor = Color.Green;
                 }
 
+                TicketsWork.ClearMistakeQuestion(questionList[activeQuestionIndex]);
             }
             else
             {
@@ -261,6 +262,7 @@ namespace DriveSchool
                     MessageBox.Show(questionList[activeQuestionIndex].answer_tip, "Вы ответили неверно");
                     button.BackColor = Color.Red;
                 }
+                TicketsWork.AddMistakeQuestion(questionList[activeQuestionIndex]);
             }
             activeQuestionIndex += 1;
             int num = Convert.ToInt32(labelFinishedQuestios.Text);

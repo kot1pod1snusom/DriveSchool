@@ -22,9 +22,10 @@ namespace DriveSchool
 
         public MainMenu()
         {
-            if (CheckUpdate()) {
+            if (CheckUpdate())
+            {
                 Environment.Exit(0);
-            }         
+            }
             InitializeComponent();
             comboBoxChouseCategory.Items.Add("A/B");
             comboBoxChouseCategory.Items.Add("C/D");
@@ -143,7 +144,7 @@ namespace DriveSchool
         {
             Button button = (Button)sender;
             List<Question> ques = TicketsWork.GetTopicTicketFromFile(button.Text, CategoryId);
-            TicketsForm ticketsForm = new TicketsForm(ques, false);
+            TicketsForm ticketsForm = new TicketsForm(ques, false, "00:00");
             Hide();
             ticketsForm.ShowDialog();
             Show();
@@ -153,20 +154,45 @@ namespace DriveSchool
         {
             Button button = (Button)sender;
             List<Question> ques = TicketsWork.GetTicketFromFile(button.Text, CategoryId);
-            TicketsForm ticketsForm = new TicketsForm(ques, false);
+            TicketsForm ticketsForm = new TicketsForm(ques, false, "00:00");
             Hide();
             ticketsForm.ShowDialog();
             Show();
-        } 
+        }
 
         private void buttonStartExam_Click(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
             List<Question> ques = TicketsWork.GetQuestionsForExam(CategoryId);
-            TicketsForm ticketsForm = new TicketsForm(ques, true);
+            TicketsForm ticketsForm = new TicketsForm(ques, true, "20:00");
             Hide();
             ticketsForm.ShowDialog();
             Show();
+        }
+
+        private void buttonMarathon_Click(object sender, EventArgs e)
+        {
+            List<Question> ques = TicketsWork.GetAllQuestions(CategoryId);
+            TicketsForm ticketsForm = new TicketsForm(ques, false, "00:00");
+            Hide();
+            ticketsForm.ShowDialog();
+            Show();
+        }
+
+        private void buttonCorrectionWork_Click(object sender, EventArgs e)
+        {
+            List<Question> ques = TicketsWork.GetMistakeQuestions(CategoryId);
+            if ((ques == null) || (ques.Count == 0))
+            {
+                MessageBox.Show("Здесь появятся вопросы, на которые ты ответил неправильно");
+                return;
+            }
+            else
+            {
+                TicketsForm ticketsForm = new TicketsForm(ques, false, "00:00");
+                Hide();
+                ticketsForm.ShowDialog();
+                Show();
+            }
         }
     }
 }
