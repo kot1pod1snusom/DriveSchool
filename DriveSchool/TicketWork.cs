@@ -36,7 +36,8 @@ class TicketsWork
             else
             {
                 //Перемещение вопроса в конец
-                questions.Remove(question);
+                int num = questions.FindIndex(x => x.id == question.id);
+                if (num != -1) questions.RemoveAt(num);
                 questions.Add(question);
             }
         }
@@ -59,7 +60,9 @@ class TicketsWork
 
         if (questions == null) return;
 
-        questions.Remove(question);
+        int num = questions.FindIndex(x => x.id == question.id);
+        if (num != -1) questions.RemoveAt(num);
+
 
         File.WriteAllText(path, JsonConvert.SerializeObject(questions));
     }

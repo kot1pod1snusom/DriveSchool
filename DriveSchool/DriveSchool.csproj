@@ -30,6 +30,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="questions\A_B\missQuestion.json" />
+	  <None Remove="questions\C_D\missQuestion.json" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <COMReference Include="WMPLib">
 	    <WrapperTool>tlbimp</WrapperTool>
 	    <VersionMinor>0</VersionMinor>
@@ -66,9 +71,5 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="questions\" />
   </ItemGroup>
 </Project>
