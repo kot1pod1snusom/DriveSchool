@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TasksEndScreen));
             tableLayoutPanel1 = new TableLayoutPanel();
             button1 = new Button();
             button2 = new Button();
@@ -162,8 +163,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(934, 577);
             Controls.Add(tableLayoutPanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TasksEndScreen";
-            Text = "Form1";
+            Text = "Автошкола пк";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

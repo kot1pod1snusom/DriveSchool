@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             tableLayoutPanel1 = new TableLayoutPanel();
             label1 = new Label();
             buttonTicketButtonsOut = new Button();
@@ -285,8 +286,9 @@
             ClientSize = new Size(885, 529);
             Controls.Add(tableLayoutPanel1);
             ForeColor = SystemColors.ControlLight;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainMenu";
-            Text = "NewMainMenu";
+            Text = "Автошкола пк";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);
