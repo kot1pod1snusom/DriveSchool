@@ -35,21 +35,28 @@ namespace DriveSchool
 
         private bool CheckUpdate()
         {
-            WebClient client = new WebClient();
-
-            if (client.DownloadString("https://pastebin.com/SrTLr3Z7").Contains(File.ReadAllText("version.txt")))
+            try
             {
+                WebClient client = new WebClient();
+
+                if (client.DownloadString("https://pastebin.com/SrTLr3Z7").Contains(File.ReadAllText("version.txt")))
+                {
+                    return false;
+                }
+
+                DialogResult dialogResult = MessageBox.Show("Обнаружена новая версия программы. Хотите обновить прямо сейчас", "Обновлене", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Process.Start(new ProcessStartInfo("https://github.com/kot1pod1snusom/DriveSchool/releases") { UseShellExecute = true });
+                    return true;
+                }
                 return false;
             }
-
-            DialogResult dialogResult = MessageBox.Show("Обнаружена новая версия программы. Хотите обновить прямо сейчас", "Обновлене", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            catch (Exception)
             {
-                Process.Start(new ProcessStartInfo("https://github.com/kot1pod1snusom/DriveSchool/releases") { UseShellExecute = true });
-                return true;
+                MessageBox.Show("Не удалось проверить наличие обновлений, возможно у вас отсутствует подключение к интеренету");
+                return false;
             }
-
-            return false;
         }
 
 
